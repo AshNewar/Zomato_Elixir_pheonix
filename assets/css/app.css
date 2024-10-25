@@ -1,0 +1,15 @@
+@import "./home.css";
+@import "./explore.css";
+@import "./footer.css";
+@import "./index.css";
+@import "./main.css";
+@import "./nav.css";
+@import "./top.css";
+
+
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* This file is for your main application CSS */

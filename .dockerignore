@@ -1,0 +1,9 @@
+# Elixir build artifacts
+_build/
+deps/
+
+# Node.js artifacts
+assets/node_modules/
+
+# Logs
+/log/

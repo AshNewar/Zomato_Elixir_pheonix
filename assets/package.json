@@ -1,0 +1,22 @@
+{
+
+  "scripts": {
+    "deploy": "npm run build",
+    "build": "esbuild js/app.js --bundle --minify --sourcemap --target=es2017 --outdir=../priv/static/js"
+    },
+
+  "dependencies": {
+    
+    "chart.js": "^4.4.5"
+
+
+  },
+
+  "devDependencies": {
+
+    "esbuild": "^0.24.0"
+
+  }
+
+}
+

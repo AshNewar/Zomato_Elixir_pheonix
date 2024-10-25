@@ -1,0 +1,46 @@
+# version: '3'
+services:
+  db:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "5672:5672" 
+      - "15672:15672" 
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmq
+      RABBITMQ_DEFAULT_PASS: rabbitmq
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+  web:
+    build: .
+    command: ./script.sh
+    environment:
+      MIX_ENV: prod
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: db
+      DATABASE_URL: ecto://postgres:postgres@db/zomato
+      SECRET_KEY_BASE: FMsGFPifCUmZPT0R95ddfG1veLdmUG68+uTLZUqvrYDvyqJPMu0HhUCG9BZQ/0Ht
+      RABBITMQ_URL: amqp://rabbitmq:rabbitmq@rabbitmq:5672 
+      RABBITMQ_USER: rabbitmq  # Add RabbitMQ user for consistency
+      RABBITMQ_PASSWORD: rabbitmq  # Add RabbitMQ password for consistency
+      RABBITMQ_HOST: rabbitmq  # 
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+      - rabbitmq
+
+volumes:
+  postgres_data:
+  rabbitmq_data:
