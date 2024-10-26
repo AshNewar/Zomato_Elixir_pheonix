@@ -2,7 +2,7 @@
 
   "scripts": {
     "deploy": "npm run build",
-    "build": "esbuild js/app.js --bundle --minify --sourcemap --target=es2017 --outdir=../priv/static/js"
+    "build": "esbuild js/app.js --bundle --minify --sourcemap --target=es2017 --outdir=../priv/static/js --external:phoenix_html --external:phoenix --external:phoenix_live_view"
     },
 
   "dependencies": {

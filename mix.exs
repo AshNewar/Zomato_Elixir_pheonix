@@ -62,8 +62,11 @@ defmodule Zomato.MixProject do
       {:bandit, "~> 1.5"},
       {:stripity_stripe, "~> 3.0"},
       {:timex, "~> 3.7"},
-      {:amqp, "~> 3.0"}
-      
+      {:amqp, "~> 3.0"},
+      {:mailgun, "~> 0.1.2"},
+      {:multipart, "~> 0.4.0"},
+      {:plug, "~> 1.0"}
+
     ]
   end
 

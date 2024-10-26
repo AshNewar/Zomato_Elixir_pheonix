@@ -1,4 +1,4 @@
-# version: '3'
+version: '3'
 services:
   db:
     image: postgres:14-alpine
@@ -22,8 +22,10 @@ services:
       - rabbitmq_data:/var/lib/rabbitmq
 
   web:
+    # image: zomato_web:latest
     build: .
     command: ./script.sh
+    restart: always
     environment:
       MIX_ENV: prod
       DATABASE_USER: postgres
@@ -32,14 +34,24 @@ services:
       DATABASE_URL: ecto://postgres:postgres@db/zomato
       SECRET_KEY_BASE: FMsGFPifCUmZPT0R95ddfG1veLdmUG68+uTLZUqvrYDvyqJPMu0HhUCG9BZQ/0Ht
       RABBITMQ_URL: amqp://rabbitmq:rabbitmq@rabbitmq:5672 
-      RABBITMQ_USER: rabbitmq  # Add RabbitMQ user for consistency
-      RABBITMQ_PASSWORD: rabbitmq  # Add RabbitMQ password for consistency
-      RABBITMQ_HOST: rabbitmq  # 
-    ports:
-      - "4000:4000"
+      RABBITMQ_USER: rabbitmq 
+      RABBITMQ_PASSWORD: rabbitmq  
+      RABBITMQ_HOST: rabbitmq 
+      PHX_HOST: web
     depends_on:
       - db
       - rabbitmq
+    deploy:
+      replicas: 4
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - web
 
 volumes:
   postgres_data:

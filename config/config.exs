@@ -11,10 +11,14 @@ config :zomato,
   ecto_repos: [Zomato.Repo],
   generators: [timestamp_type: :utc_datetime]
 
+
+host = System.get_env("PHX_HOST") || "localhost"
+
 # Configures the endpoint
 config :zomato, ZomatoWeb.Endpoint,
-  url: [host: "localhost"],
-  # check_origin: ["http://localhost:4000", "http://127.0.0.1:4000"],
+  url: [host: host, port: 8000],
+  http: [port: 4000],
+  check_origin: ["http://localhost:8000"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: ZomatoWeb.ErrorHTML, json: ZomatoWeb.ErrorJSON],

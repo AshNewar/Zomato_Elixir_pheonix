@@ -10,8 +10,8 @@ defmodule Zomato.RabbitMQ do
     GenServer.start_link(__MODULE__, nil, name: __MODULE__)
   end
 
-  @exchange "demo_exchange"
-  @queue "demo_queue"
+  @exchange "prod_exchange"
+  @queue "prod_queue"
 
   @impl true
   def init(_) do
@@ -19,6 +19,7 @@ defmodule Zomato.RabbitMQ do
     rabbitmq_pass = System.get_env("RABBITMQ_PASSWORD") || "rabbitmq"
     rabbitmq_host = System.get_env("RABBITMQ_HOST") || "localhost"
 
+    # IO.inpsect("Connecting to RabbitMQ")
     {:ok, conn} = Connection.open(username: rabbitmq_user, password: rabbitmq_pass, host: rabbitmq_host)
     {:ok, chan} = Channel.open(conn)
     IO.inspect("RabbitMQ Connection and Channel opened")
