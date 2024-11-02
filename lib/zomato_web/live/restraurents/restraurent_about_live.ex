@@ -17,21 +17,32 @@ defmodule ZomatoWeb.Warehouse.RestraurentAboutLive do
 
         user = Accounts.get_user_by_session_token(session["user_token"])
         restraurant = Shops.get_restraurent!(id)
-        IO.inspect(id,label: "id")
 
-        socket =
-            socket
-            |> assign(:cart_id, session["cart_id"])
-            |> assign(:id, id)
-            |> assign(:restaurant, restraurant)
-            |> assign(:user, user)
-            |> assign(:active_section, "overview")
-            |> stream(:items, Items.list_items_by_restaurant(id))
-            |> assign(:uploaded_files,[])
-            |> allow_upload(:avatar, accept: ~w(.jpg .jpeg .png), max_entries: 1)
+        if(restraurant == nil) do
+            socket =
+                socket
+                |> Phoenix.LiveView.redirect(to: ~p"/error")
+
+            {:ok, socket}
+
+        else
+            socket =
+                socket
+                |> assign(:cart_id, session["cart_id"])
+                |> assign(:id, id)
+                |> assign(:restaurant, restraurant)
+                |> assign(:user, user)
+                |> assign(:active_section, "overview")
+                |> stream(:items, Items.list_items_by_restaurant(id))
+                |> assign(:uploaded_files,[])
+                |> allow_upload(:avatar, accept: ~w(.jpg .jpeg .png), max_entries: 1)
 
 
-        {:ok, socket}
+            {:ok, socket}
+        end
+
+
+
     end
 
     def handle_info({:flash_info, message}, socket) do

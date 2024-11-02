@@ -69,12 +69,15 @@ defmodule ZomatoWeb.LiveComponents.FollowLive do
 
           <%= for user <- @following do %>
             <div class="bg-white shadow-md rounded-lg p-4 flex items-center justify-between">
+              <.link href={~p"/warehouse/users/details/#{user.id}"}>
+
               <div class="flex items-center">
                 <img class="w-12 h-12 rounded-full mr-4" src={user.profile_pic} alt="Profile Pic">
                 <div>
                   <h2 class="text-lg font-semibold"><%= user.name%></h2>
                 </div>
               </div>
+              </.link>
               <%= if @show==0 do %>
               <button phx-target={@myself} phx-click="remove_user" phx-value-id={user.id} class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Remove</button>
               <% end %>
@@ -87,12 +90,15 @@ defmodule ZomatoWeb.LiveComponents.FollowLive do
 
           <%= for user <- @followers do %>
             <div class="bg-white shadow-md rounded-lg p-4 flex items-center justify-between">
+            <.link href={~p"/warehouse/users/details/#{user.id}"}>
+
               <div class="flex items-center">
                 <img class="w-12 h-12 rounded-full mr-4" src={user.profile_pic} alt="Profile Pic">
                 <div>
                   <h2 class="text-lg font-semibold"><%= user.name%></h2>
                 </div>
               </div>
+              </.link>
             </div>
           <% end %>
 
@@ -107,12 +113,15 @@ defmodule ZomatoWeb.LiveComponents.FollowLive do
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <%= for user <- @random_user do %>
           <div class="bg-white shadow-md rounded-lg p-4 flex items-center justify-between">
+          <.link href={~p"/warehouse/users/details/#{user.id}"}>
+
             <div class="flex items-center">
               <img class="w-12 h-12 rounded-full mr-4" src={user.profile_pic} alt="Profile Pic">
               <div>
                 <h2 class="text-lg font-semibold"><%= user.name%></h2>
               </div>
             </div>
+            </.link>
             <button phx-target={@myself} phx-click="follow_user" phx-value-id={user.id}  class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Follow</button>
           </div>
         <% end %>

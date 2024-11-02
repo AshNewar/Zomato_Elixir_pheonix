@@ -128,7 +128,7 @@ defmodule ZomatoWeb.Warehouse.UserDashLive do
         </div>
         <div class="bg-white shadow-md rounded-lg p-4 flex-1 max-w-xs m-2"> <!-- Example additional card -->
           <h3 class="text-xl font-bold mb-2">Followers</h3>
-          <p class="text-3xl text-blue-600">10</p>
+          <p class="text-3xl text-blue-600">2</p>
         </div>
         <div class="bg-white shadow-md rounded-lg p-4 flex-1 max-w-xs m-2"> <!-- Example additional card -->
           <h3 class="text-xl font-bold mb-2">Orders</h3>

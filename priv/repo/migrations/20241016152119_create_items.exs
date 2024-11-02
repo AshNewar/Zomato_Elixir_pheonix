@@ -4,7 +4,7 @@ defmodule Zomato.Repo.Migrations.CreateItems do
   def change do
     create table(:items) do
       add :restaurant_id, references(:restraurents, on_delete: :delete_all), null: false
-      add :price, :decimal, precision: 10, scale: 2, null: false
+      add :price, :integer, null: false
       add :name, :string, null: false
       add :description, :text
       add :photo_url, :string

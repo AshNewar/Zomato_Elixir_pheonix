@@ -3,6 +3,7 @@
   max-width: 110rem;
   max-height: initial;
   margin: 0px auto;
+  z-index: -1;
 }
 
 .options {

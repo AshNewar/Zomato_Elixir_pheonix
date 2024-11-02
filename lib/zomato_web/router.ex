@@ -27,6 +27,7 @@ defmodule ZomatoWeb.Router do
 
     live "/", PageControllerLive, :show
     live "/about", AboutLive, :show
+    live "/error" , ErrorLive , :new
   end
 
   # Other scopes may use custom stacks.

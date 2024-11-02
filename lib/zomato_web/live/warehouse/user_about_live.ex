@@ -11,21 +11,32 @@ defmodule ZomatoWeb.Warehouse.UserAboutLive do
   @impl true
   def mount(%{"user_id" => user_id}, session, socket) do
     user = Accounts.get_user!(user_id)
-    ordersdetails = Orders.get_orders_summary_for_user(user.id)
-    review_detail = Reviews.get_review_summary_user(user.id)
+    if( user == nil) do
+      socket =
+        socket
+        |> Phoenix.LiveView.redirect(to: ~p"/error")
 
-    {:ok,
-      socket
-      |> assign(current_section: "myReviews")
-      |> assign(cur_section: "following")
-      |> assign(search_results: nil)
-      |> assign(orders: ordersdetails)
-      |> assign(reviews: review_detail)
-      |> assign(user: user)
-      |> assign(cart_id: session["cart_id"])
-      |> allow_upload(:avatar, accept: ~w(.jpg .jpeg .png), max_entries: 1)
+      {:ok, socket}
 
-    }
+    else
+      ordersdetails = Orders.get_orders_summary_for_user(user.id)
+      review_detail = Reviews.get_review_summary_user(user.id)
+
+      {:ok,
+        socket
+        |> assign(current_section: "myReviews")
+        |> assign(cur_section: "following")
+        |> assign(search_results: nil)
+        |> assign(orders: ordersdetails)
+        |> assign(reviews: review_detail)
+        |> assign(user: user)
+        |> assign(cart_id: session["cart_id"])
+        |> allow_upload(:avatar, accept: ~w(.jpg .jpeg .png), max_entries: 1)
+
+      }
+
+    end
+
   end
 
   @impl true
@@ -65,7 +76,7 @@ defmodule ZomatoWeb.Warehouse.UserAboutLive do
         </div>
         <div class="bg-white shadow-md rounded-lg p-4 flex-1 max-w-xs m-2"> <!-- Example additional card -->
           <h3 class="text-xl font-bold mb-2">Followers</h3>
-          <p class="text-3xl text-blue-600">10</p>
+          <p class="text-3xl text-blue-600">2</p>
         </div>
         <div class="bg-white shadow-md rounded-lg p-4 flex-1 max-w-xs m-2"> <!-- Example additional card -->
           <h3 class="text-xl font-bold mb-2">Orders</h3>

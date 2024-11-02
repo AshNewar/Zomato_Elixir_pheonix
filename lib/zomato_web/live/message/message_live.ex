@@ -37,10 +37,10 @@ defmodule ZomatoWeb.Warehouse.MessageLive do
 
       <aside class="md:hidden bg-red-400 p-2 overflow-x-auto">
         <ul  class="flex space-x-4" >
-          <li><a href="#" class="block p-2 bg-gray-300 rounded-md hover:bg-gray-400 transition">General</a></li>
-          <li><a href="#" class="block p-2 bg-gray-300 rounded-md hover:bg-gray-400 transition">Suggestions</a></li>
-          <li><a href="#" class="block p-2 bg-gray-300 rounded-md hover:bg-gray-400 transition">Travellers Point</a></li>
-          <li><a href="#" class="block p-2 bg-gray-300 rounded-md hover:bg-gray-400 transition">Party</a></li>
+          <li><a href={~p"/warehouse/users/chat?room_id=1"} class="block p-2 text-xl bg-red-300 rounded-md hover:bg-gray-400 transition">General</a></li>
+          <li><a href={~p"/warehouse/users/chat?room_id=2"} class="block p-2 text-xl bg-red-300 rounded-md hover:bg-gray-400 transition">Suggestions</a></li>
+          <li><a href={~p"/warehouse/users/chat?room_id=3"} class="block p-2 text-xl bg-red-300 rounded-md hover:bg-gray-400 transition">Travellers Point</a></li>
+          <li><a href={~p"/warehouse/users/chat?room_id=4"} class="block p-2 text-xl bg-red-300 rounded-md hover:bg-gray-400 transition">Party</a></li>
         </ul>
       </aside>
 

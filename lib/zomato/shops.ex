@@ -106,7 +106,7 @@ end
       ** (Ecto.NoResultsError)
 
   """
-  def get_restraurent!(id), do: Repo.get!(Restraurent, id)
+  def get_restraurent!(id), do: Repo.get(Restraurent, id)
 
   ## Restraurent registration
 

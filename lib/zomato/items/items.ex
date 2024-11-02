@@ -3,7 +3,7 @@ defmodule Zomato.Item do
   import Ecto.Changeset
 
   schema "items" do
-    field :price, :decimal
+    field :price, :integer
     field :name, :string
     field :description, :string
     field :photo_url, :string

@@ -18,7 +18,7 @@ defmodule ZomatoWeb.LiveComponents.CartComponent do
           cart_item = List.first(items)
           quantity = cart_item.quantity
           cart_item_id = cart_item.id
-          price = Decimal.to_integer(item.price)
+          price = item.price
           total_amount = price * quantity
 
           new_bill_item = %{
@@ -58,20 +58,19 @@ defmodule ZomatoWeb.LiveComponents.CartComponent do
                     description: item["description"],
                     images: ["https://restaurantindia.s3.ap-south-1.amazonaws.com/s3fs-public/2024-02/zomato-infinity-dining-916x516-1_11zon%20%282%29_0.jpg"]
                   },
-                  unit_amount: item["price"]
+                  unit_amount: item["price"] * 100
                 },
                 quantity: item["quantity"]
               }
             end)
 
-            IO.inspect(line_items, label: "Line Items")
 
           {:ok, checkout_session} =
             Stripe.Checkout.Session.create(%{
               line_items: line_items,
               mode: :payment,
-              success_url: url(~p"/warehouse/users/success/#{socket.assigns.cart_id}"),
-              cancel_url: url(~p"/"),
+              success_url: "http://localhost:8000/warehouse/users/success/#{socket.assigns.cart_id}",
+              cancel_url: "http://localhost:8000/",
               metadata: %{"cart_id" => socket.assigns.cart_id}
             })
 
@@ -89,14 +88,6 @@ defmodule ZomatoWeb.LiveComponents.CartComponent do
             payload = Jason.encode!(payload)
 
             RabbitMQ.publish(payload)
-
-            # Enum.each(grouped_items, fn {restaurant_id, items_for_restaurant} ->
-            #   total_amount_for_restaurant =
-            #     Enum.reduce(items_for_restaurant, 0, fn item, acc ->
-            #       acc + (item["price"] * item["quantity"])
-            #     end)
-            #     Orders.create_order(socket.assigns.cart_id, socket.assigns.id, restaurant_id, total_amount_for_restaurant)
-            # end)
 
           {:noreply, redirect(socket, external: checkout_session.url)}
 

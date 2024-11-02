@@ -45,7 +45,7 @@ defmodule Zomato.Accounts.User do
   """
   def registration_changeset(user, attrs, opts \\ []) do
     user
-    |> cast(attrs, [:email, :password, :name, :phone, :address])
+    |> cast(attrs, [:email, :password, :name, :phone, :address, :profile_pic])
     |> validate_email(opts)
     |> validate_password(opts)
   end

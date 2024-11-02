@@ -91,7 +91,7 @@ defmodule ZomatoWeb.Restraurents.RestraurentHomeLive do
             src={~p"/images/logo.png"}
             alt="Zomato Logo"
           />
-          <h1 class="text-5xl px-6 py-6 font-bold text-white">
+          <h1 class="text-5xl px-6 py-6 font-bold text-white text-center">
           Partner with Zomato
           and grow your business
             <%!-- <span class="place">Near You</span> --%>
@@ -104,7 +104,7 @@ defmodule ZomatoWeb.Restraurents.RestraurentHomeLive do
       </div>
       <h2 class="text-5xl font-bold text-center mb-10">Why Partner with Zomato?</h2>
 
-      <div class="max-w-screen-lg m-auto grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div class="max-w-screen-lg m-auto grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-2">
         <!-- Card 1: Reach More Customers -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
             <div class="image h-66">
