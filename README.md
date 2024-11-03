@@ -12,6 +12,7 @@ App with funtionalities like Zomato
 - Using __RabbitMQ__ to achieve asyncronous communication for sending emails
 - __Nginx__ as Load Balancer
 - Trending Restraurents and Foods
+- Fully Responsive Design and User friendly
 
 
 
@@ -30,7 +31,7 @@ App with funtionalities like Zomato
 ![image](https://github.com/user-attachments/assets/fbe9e58a-f367-4755-adae-b652a6607158)
 
 
-## Steps
+## Steps To Run Using Docker
 ### 1. Installation
 
 Clone my-project with git
@@ -81,6 +82,16 @@ Expiry : Any Future Date
 CVC : Any Three Number
 
 
+### Steps to run Locally
+
+```
+docker compose up -d db rabbitmq
+```
+Now run the local Server
+```
+mix ecto.setup
+mix phx.server
+```
 
 
 
