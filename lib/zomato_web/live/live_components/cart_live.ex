@@ -43,6 +43,7 @@ defmodule ZomatoWeb.LiveComponents.CartComponent do
 
 
     def handle_event("checkout", %{"bill" => json_data}, socket) do
+
       case Jason.decode(json_data) do
         {:ok, items} when is_list(items) ->
 
@@ -111,7 +112,7 @@ defmodule ZomatoWeb.LiveComponents.CartComponent do
                   price = item.price
                   total_amount = price * quantity
                   new_bill_item = %{
-                  cart_item_id: cart_item_id, 
+                  cart_item_id: cart_item_id,
                   name: item.name,
                   quantity: quantity,
                   price: price,

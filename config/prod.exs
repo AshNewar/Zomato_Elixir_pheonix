@@ -25,14 +25,14 @@ config :logger, level: :info
 config :zomato, dev_routes: true
 
 
-config :zomato, Zomato.Mailer,
-  adapter: Swoosh.Adapters.SMTP,
-  relay: System.get_env("SMTP_RELAY"),
-  username: System.get_env("SMTP_USERNAME"),
-  password: System.get_env("SMTP_PASSWORD"),
-  ssl: true,
-  auth: :always,
-  port: 587
+# config :zomato, Zomato.Mailer,
+#   adapter: Swoosh.Adapters.SMTP,
+#   relay: System.get_env("SMTP_RELAY"),
+#   username: System.get_env("SMTP_USERNAME"),
+#   password: System.get_env("SMTP_PASSWORD"),
+#   ssl: true,
+#   auth: :always,
+#   port: 587
 
 
 # config :phoenix_live_view,

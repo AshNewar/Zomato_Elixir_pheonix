@@ -381,7 +381,7 @@ defmodule Zomato.Seeds do
         price: 6,
         name: "Chocolate Cake",
         description: "Decadent chocolate cake slice.",
-        photo_url: "https://example.com/photos/chocolate_cake.jpg",
+        photo_url: "https://t.ly/C_pRk",
         no_of_orders: 35,
         category: "Dessert",
         inserted_at: DateTime.utc_now(),
@@ -403,7 +403,7 @@ defmodule Zomato.Seeds do
         price: 10,
         name: "Margherita Pizza",
         description: "Classic pizza topped with tomatoes, fresh mozzarella, and basil.",
-        photo_url: "https://example.com/photos/margherita_pizza.jpg",
+        photo_url: "https://t.ly/C_pRk",
         no_of_orders: 50,
         category: "Main Course",
         inserted_at: DateTime.utc_now(),
@@ -436,7 +436,7 @@ defmodule Zomato.Seeds do
         price: 7,
         name: "French Fries",
         description: "Golden crispy french fries, lightly salted.",
-        photo_url: "https://example.com/photos/french_fries.jpg",
+        photo_url: "https://t.ly/C_pRk",
         no_of_orders: 60,
         category: "Side",
         inserted_at: DateTime.utc_now(),
@@ -605,91 +605,6 @@ defmodule Zomato.Seeds do
     end
 
     IO.puts("Seeded Reviews")
-
-
-    # orders = [
-    #   %{
-    #     status: "completed",
-    #     total_amount: 29,
-    #     user_id: 1,
-    #     cart_id: 1,
-    #     restaurant_id: 1,
-    #     inserted_at: DateTime.utc_now(),
-    #     updated_at: DateTime.utc_now()
-    #   },
-    #   %{
-    #     status: "pending",
-    #     total_amount: 15,
-    #     user_id: 2,
-    #     cart_id: 2,
-    #     restaurant_id: 2,
-    #     inserted_at: DateTime.utc_now(),
-    #     updated_at: DateTime.utc_now()
-    #   },
-    #   %{
-    #     status: "completed",
-    #     total_amount: 45,
-    #     user_id: 3,
-    #     cart_id: 3,
-    #     restaurant_id: 3,
-    #     inserted_at: DateTime.utc_now(),
-    #     updated_at: DateTime.utc_now()
-    #   },
-    #   %{
-    #     status: "completed",
-    #     total_amount: 22,
-    #     user_id: 1,
-    #     cart_id: 4,
-    #     restaurant_id: 4,
-    #     inserted_at: DateTime.utc_now(),
-    #     updated_at: DateTime.utc_now()
-    #   },
-    #   %{
-    #     status: "pending",
-    #     total_amount: 18,
-    #     user_id: 2,
-    #     cart_id: 5,
-    #     restaurant_id: 1,
-    #     inserted_at: DateTime.utc_now(),
-    #     updated_at: DateTime.utc_now()
-    #   },
-    #   %{
-    #     status: "completed",
-    #     total_amount: 37,
-    #     user_id: 3,
-    #     cart_id: 6,
-    #     restaurant_id: 2,
-    #     inserted_at: DateTime.utc_now(),
-    #     updated_at: DateTime.utc_now()
-    #   },
-    #   %{
-    #     status: "completed",
-    #     total_amount: 12,
-    #     user_id: 1,
-    #     cart_id: 7,
-    #     restaurant_id: 3,
-    #     inserted_at: DateTime.utc_now(),
-    #     updated_at: DateTime.utc_now()
-    #   },
-    #   %{
-    #     status: "pending",
-    #     total_amount: 25,
-    #     user_id: 2,
-    #     cart_id: 8,
-    #     restaurant_id: 4,
-    #     inserted_at: DateTime.utc_now(),
-    #     updated_at: DateTime.utc_now()
-    #   }
-    # ]
-
-    # for order_attrs <- orders do
-    #   %Order{}
-    #   |> Order.changeset(order_attrs)
-    #   |> Repo.insert!()
-    # end\
-
-
-    # IO.inspect("Seeded Orders")
 
     follows_data = [
       %{follower_id: 1, followed_id: 2},

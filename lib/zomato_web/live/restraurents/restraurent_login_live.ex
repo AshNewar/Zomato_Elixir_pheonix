@@ -33,7 +33,7 @@ defmodule ZomatoWeb.Restraurents.RestraurentLoginLive do
         </:actions>
       </.simple_form>
     </div>
-  </div>
+    </div>
     """
   end
 

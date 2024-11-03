@@ -20,8 +20,8 @@ defmodule ZomatoWeb.Restraurents.RestraurentForgotPasswordLive do
         </:actions>
       </.simple_form>
       <p class="text-center text-sm mt-4">
-        <.link href={~p"/restraurents/restraurents/register"}>Register</.link>
-        | <.link href={~p"/restraurents/restraurents/log_in"}>Log in</.link>
+        <.link href={~p"/"}>Register</.link>
+        | <.link href={~p"/"}>Log in</.link>
       </p>
     </div>
     """
@@ -35,7 +35,7 @@ defmodule ZomatoWeb.Restraurents.RestraurentForgotPasswordLive do
     if restraurent = Shops.get_restraurent_by_email(email) do
       Shops.deliver_restraurent_reset_password_instructions(
         restraurent,
-        &url(~p"/restraurents/restraurents/reset_password/#{&1}")
+        &url(~p"/restraurents/reset_password/#{&1}")
       )
     end
 

@@ -3,7 +3,7 @@ defmodule ZomatoWeb.Restraurents.RestraurentRegistrationLive do
 
   alias Zomato.Shops
   alias Zomato.Shops.Restraurent
-  @impl true
+  
   def render(assigns) do
     ~H"""
 

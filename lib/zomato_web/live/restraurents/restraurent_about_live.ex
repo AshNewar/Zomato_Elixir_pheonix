@@ -78,10 +78,8 @@ defmodule ZomatoWeb.Warehouse.RestraurentAboutLive do
     def render(assigns) do
     ~H"""
     <div class="max-w-screen-lg mx-auto p-4">
-    <!-- Header with Logo, Search, and Profile Icon -->
     <.live_component module={NavbarLive} id={@user.id} cart_id={@cart_id}/>
 
-    <!-- Restaurant Information Section -->
     <div class="flex flex-col sm:flex-row items-center gap-4">
         <div class="w-full sm:w-1/3 h-72 bg-cover bg-center rounded-lg" style={"background-image: url(#{@restaurant.profile_pic});"}></div>
         <div class="w-full sm:w-2/3 flex flex-col gap-2">
@@ -94,7 +92,6 @@ defmodule ZomatoWeb.Warehouse.RestraurentAboutLive do
         </div>
     </div>
 
-    <!-- Tab Navigation -->
     <nav class="flex justify-around bg-white shadow-md rounded-lg mt-8">
         <button phx-click="show_section" phx-value-section="overview" class="text-gray-700 hover:text-red-600 py-4 px-6 font-semibold">Overview</button>
         <button phx-click="show_section" phx-value-section="reviews" class="text-gray-700 hover:text-red-600 py-4 px-6 font-semibold">Reviews</button>
@@ -102,7 +99,6 @@ defmodule ZomatoWeb.Warehouse.RestraurentAboutLive do
         <button phx-click="show_section" phx-value-section="menu" class="text-gray-700 hover:text-red-600 py-4 px-6 font-semibold">Menu</button>
     </nav>
 
-    <!-- Section Content -->
     <div class="mt-8">
         <%= if @active_section == "overview" do %>
             <h2 class="text-2xl font-bold mb-4">Restraurent Overview</h2>

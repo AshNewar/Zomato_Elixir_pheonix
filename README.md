@@ -31,7 +31,7 @@ App with funtionalities like Zomato
 
 
 ## Steps
-### Installation
+### 1. Installation
 
 Clone my-project with git
 
@@ -43,7 +43,7 @@ __Note__ :
 - Docker daemon should be running on Your Machine
 - Make Sure You are in the project folder
 
-### Setup
+### 2. Setup
 Now Run the Docker commands
 ```bash
     docker compose up -d
@@ -57,13 +57,36 @@ Check the Server running in ``http://localhost:8000``
 
 __NOTE__ : It may take some time as NGINX is setting up the proxy
 
-### Seeding Datas
+### 3. Seeding Datas
+Access the Docker Container
 ```
 docker exec -it zomato-web-1 bash
+```
+Then paste this cmd to seed some dummy datas in the docker container bash
+```
 export DATABASE_URL="ecto://postgres:postgres@db/zomato"
 export SECRET_KEY_BASE="FMsGFPifCUmZPT0R95ddfG1veLdmUG68+uTLZUqvrYDvyqJPMu0HhUCG9BZQ/0Ht"
 MIX_ENV=prod  mix run priv/repo/seeds.exs
 ```
+
+
+### 4. Stripe
+While Doing Payment in 
+__Test Mode__
+
+Visa-Card : ```4242 4242 4242 4242```
+
+Expiry : Any Future Date 
+
+CVC : Any Three Number
+
+
+
+
+
+__And Now You are all Set to ORDER SOME FOOD__
+
+
 
 
 

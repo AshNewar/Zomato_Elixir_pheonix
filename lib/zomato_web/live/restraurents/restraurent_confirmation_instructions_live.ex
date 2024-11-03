@@ -21,8 +21,8 @@ defmodule ZomatoWeb.Restraurents.RestraurentConfirmationInstructionsLive do
       </.simple_form>
 
       <p class="text-center mt-4">
-        <.link href={~p"/restraurents/restraurents/register"}>Register</.link>
-        | <.link href={~p"/restraurents/restraurents/log_in"}>Log in</.link>
+        <.link href={~p"/"}>Register</.link>
+        | <.link href={~p"/"}>Log in</.link>
       </p>
     </div>
     """
