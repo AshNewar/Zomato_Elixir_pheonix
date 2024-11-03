@@ -15,6 +15,8 @@ RUN MIX_ENV=prod mix do deps.get, deps.compile
 RUN npm install --prefix ./assets
 RUN npm run --prefix ./assets build
 
+RUN mix assets.deploy
+
 RUN mix phx.digest
 
 RUN mix compile
@@ -22,3 +24,5 @@ RUN mix compile
 EXPOSE 4000
 
 CMD ["sh", "-c", "mix ecto.create && mix ecto.migrate && mix phx.server"]
+
+
