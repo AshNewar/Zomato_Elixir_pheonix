@@ -59,7 +59,8 @@ __NOTE__ : It may take some time as NGINX is setting up the proxy
 
 ### Seeding Datas
 ```
-export DATABASE_URL="ecto://postgres:postgres@localhost/zomato"
+docker exec -it zomato-web-1 bash
+export DATABASE_URL="ecto://postgres:postgres@db/zomato"
 export SECRET_KEY_BASE="FMsGFPifCUmZPT0R95ddfG1veLdmUG68+uTLZUqvrYDvyqJPMu0HhUCG9BZQ/0Ht"
 MIX_ENV=prod  mix run priv/repo/seeds.exs
 ```
