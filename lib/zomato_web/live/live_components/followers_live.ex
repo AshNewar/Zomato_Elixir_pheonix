@@ -2,7 +2,7 @@ defmodule ZomatoWeb.LiveComponents.FollowersLive do
   use ZomatoWeb, :live_component
 
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, cur_section: "following")}  # Default to "following"
+    {:ok, assign(socket, cur_section: "following")}  
   end
 
   def handle_event("change_sec", %{"section" => section}, socket) do

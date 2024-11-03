@@ -21,4 +21,4 @@ RUN mix compile
 
 EXPOSE 4000
 
-CMD ["sh", "-c", "mix ecto.create && mix ecto.migrate && mix run priv/repo/seeds.exs && mix phx.server"]
+CMD ["sh", "-c", "mix ecto.create && mix ecto.migrate && mix phx.server"]

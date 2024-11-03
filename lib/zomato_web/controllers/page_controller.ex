@@ -41,7 +41,7 @@ defmodule ZomatoWeb.PageControllerLive do
       |> assign(best_item: best_item)
       |> assign(leader_board: leader_board)
       |> assign(trigger_submit: false, check_errors: false, search_results: nil)
-      |> assign_form(changeset) # Updates socket with form changeset
+      |> assign_form(changeset) 
 
 
     {:ok, socket, temporary_assigns: [form: nil]}

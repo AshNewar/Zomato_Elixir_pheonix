@@ -35,10 +35,6 @@ defmodule ZomatoWeb.LiveComponents.OrderLive do
           <% end %>
         </tbody>
       </table>
-
-    <%!-- <%= if Enum.empty?(@orders) do %>
-      <p class="mt-4 text-gray-600 text-center">You have no orders yet.</p>
-        <% end %> --%>
       </div>
     </div>
 

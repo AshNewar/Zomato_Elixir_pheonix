@@ -24,7 +24,6 @@ services:
   web:
     # image: zomato_web:latest
     build: .
-    command: ./script.sh
     restart: always
     environment:
       MIX_ENV: prod

@@ -19,7 +19,6 @@ defmodule Zomato.RabbitMQ do
     rabbitmq_pass = System.get_env("RABBITMQ_PASSWORD") || "rabbitmq"
     rabbitmq_host = System.get_env("RABBITMQ_HOST") || "localhost"
 
-    # IO.inpsect("Connecting to RabbitMQ")
     {:ok, conn} = Connection.open(username: rabbitmq_user, password: rabbitmq_pass, host: rabbitmq_host)
     {:ok, chan} = Channel.open(conn)
     IO.inspect("RabbitMQ Connection and Channel opened")

@@ -14,7 +14,6 @@ defmodule ZomatoWeb.LiveComponents.CartComponent do
         {bill, sum} = Enum.reduce(grouped_items, {[], 0}, fn {item_id, items}, {acc_bill, acc_sum} ->
           item = Items.get_item!(item_id)
 
-          # Assuming the quantity is stored in the CartItem schema
           cart_item = List.first(items)
           quantity = cart_item.quantity
           cart_item_id = cart_item.id
@@ -109,10 +108,10 @@ defmodule ZomatoWeb.LiveComponents.CartComponent do
                   item = Items.get_item!(item_id)
                   quantity = length(items)
                   cart_item_id = List.first(items).id
-                  price = Decimal.to_integer(item.price) # Convert Decimal to integer
+                  price = item.price
                   total_amount = price * quantity
                   new_bill_item = %{
-                  cart_item_id: cart_item_id, ## want cart_item_id
+                  cart_item_id: cart_item_id, 
                   name: item.name,
                   quantity: quantity,
                   price: price,
